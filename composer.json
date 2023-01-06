@@ -1,0 +1,21 @@
+{
+  "name": "samuele-martini/module-gpt-3",
+  "version": "1.0.0",
+  "description": "Open AI GPT-3 integration",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-catalog": "104.0.*"
+  },
+  "license": [
+    "GPL-3.0-or-later"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "SamueleMartini\\GPT3\\": ""
+    }
+  }
+}

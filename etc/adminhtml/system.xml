@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="samuele_martini" translate="label" sortOrder="10">
+            <label>Samuele Martini</label>
+        </tab>
+        <section id="gpt_3" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>GPT 3 settings</label>
+            <class>separator-top</class>
+            <tab>samuele_martini</tab>
+            <resource>SamueleMartini_GPT3::samuele_martini_gpt_3</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="org_id" translate="label" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Open AI Organization ID</label>
+                    <comment>Get you organization ID here: https://beta.openai.com/account/org-settings</comment>
+                </field>
+                <field id="api_key" translate="label" type="password" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Open AI Api Key</label>
+                    <comment>Get you api key here: https://beta.openai.com/account/api-keys</comment>
+                </field>
+                <field id="model" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>GPT-3 model</label>
+                    <source_model>SamueleMartini\GPT3\Model\Config\GPT3\Models</source_model>
+                    <comment>Insert api key and organization ID and save to see options. Refer to the documentation to understand which model to select: https://beta.openai.com/docs/models/gpt-3</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
