@@ -1,17 +1,17 @@
 <?php
 
-namespace SamueleMartini\GPT3\Plugin;
+namespace SamueleMartini\GPT\Plugin;
 
 use Magento\Catalog\Controller\Adminhtml\Category\Edit as Subject;
 use Magento\Framework\Exception\NoSuchEntityException;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
+use SamueleMartini\GPT\Helper\ModuleConfig;
 use Magento\Framework\Message\ManagerInterface;
-use SamueleMartini\GPT3\Api\GenerateCategoryDescriptionInterface;
+use SamueleMartini\GPT\Api\GenerateCategoryDescriptionInterface;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\Session;
 use Exception;
 
-class SetGPT3CategoryDescription
+class SetGPTCategoryDescription
 {
     /**
      * @var ModuleConfig

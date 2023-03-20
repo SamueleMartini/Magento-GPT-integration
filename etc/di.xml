@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="SamueleMartini\GPT3\Api\ConnectionInterface" type="SamueleMartini\GPT3\Model\GPT3\Connection"/>
-    <preference for="SamueleMartini\GPT3\Api\GPT3ModelsInterface" type="SamueleMartini\GPT3\Model\GPT3\GPT3Models"/>
-    <preference for="SamueleMartini\GPT3\Api\GPT3CompletionsInterface" type="SamueleMartini\GPT3\Model\GPT3\GPT3Completions"/>
-    <preference for="SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface" type="SamueleMartini\GPT3\Service\GenerateProductDescription"/>
-    <preference for="SamueleMartini\GPT3\Api\GenerateCategoryDescriptionInterface" type="SamueleMartini\GPT3\Service\GenerateCategoryDescription"/>
-    <preference for="SamueleMartini\GPT3\Api\GetLanguageByStoreIdInterface" type="SamueleMartini\GPT3\Service\GetLanguageByStoreId"/>
-    <preference for="SamueleMartini\GPT3\Api\GPT3ImagesInterface" type="SamueleMartini\GPT3\Model\GPT3\GPT3Images"/>
+    <preference for="SamueleMartini\GPT\Api\ConnectionInterface" type="SamueleMartini\GPT\Model\GPT\Connection"/>
+    <preference for="SamueleMartini\GPT\Api\GPTModelsInterface" type="SamueleMartini\GPT\Model\GPT\GPTModels"/>
+    <preference for="SamueleMartini\GPT\Api\GPTCompletionsInterface" type="SamueleMartini\GPT\Model\GPT\GPTCompletions"/>
+    <preference for="SamueleMartini\GPT\Api\GenerateProductDescriptionInterface" type="SamueleMartini\GPT\Service\GenerateProductDescription"/>
+    <preference for="SamueleMartini\GPT\Api\GenerateCategoryDescriptionInterface" type="SamueleMartini\GPT\Service\GenerateCategoryDescription"/>
+    <preference for="SamueleMartini\GPT\Api\GetLanguageByStoreIdInterface" type="SamueleMartini\GPT\Service\GetLanguageByStoreId"/>
+    <preference for="SamueleMartini\GPT\Api\GPTImagesInterface" type="SamueleMartini\GPT\Model\GPT\GPTImages"/>
 
     <type name="Magento\Framework\Console\CommandListInterface">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="samuelemartini_gpt3_generate_product_description" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateProductDescription</item>
-                <item name="samuelemartini_gpt3_generate_product_description_sku" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateProductDescriptionBySku</item>
-                <item name="samuelemartini_gpt3_generate_product_description_id" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateProductDescriptionById</item>
-                <item name="samuelemartini_gpt3_generate_category_description" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateCategoryDescription</item>
-                <item name="samuelemartini_gpt3_generate_category_description_id" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateCategoryDescriptionById</item>
-                <item name="samuelemartini_gpt3_generate_images" xsi:type="object">SamueleMartini\GPT3\Console\Command\GenerateImages</item>
+                <item name="samuelemartini_gpt_generate_product_description" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateProductDescription</item>
+                <item name="samuelemartini_gpt_generate_product_description_sku" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateProductDescriptionBySku</item>
+                <item name="samuelemartini_gpt_generate_product_description_id" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateProductDescriptionById</item>
+                <item name="samuelemartini_gpt_generate_category_description" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateCategoryDescription</item>
+                <item name="samuelemartini_gpt_generate_category_description_id" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateCategoryDescriptionById</item>
+                <item name="samuelemartini_gpt_generate_images" xsi:type="object">SamueleMartini\GPT\Console\Command\GenerateImages</item>
             </argument>
         </arguments>
     </type>

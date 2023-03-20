@@ -1,11 +1,11 @@
 <?php
 
-namespace SamueleMartini\GPT3\Model\GPT3;
+namespace SamueleMartini\GPT\Model\GPT;
 
-use SamueleMartini\GPT3\Api\ConnectionInterface;
+use SamueleMartini\GPT\Api\ConnectionInterface;
 use Magento\Framework\HTTP\Client\Curl;
 use Magento\Framework\Serialize\Serializer\Json;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
+use SamueleMartini\GPT\Helper\ModuleConfig;
 use Exception;
 
 class Connection implements ConnectionInterface

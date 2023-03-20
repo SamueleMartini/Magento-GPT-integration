@@ -1,6 +1,6 @@
 <?php
 
-namespace SamueleMartini\GPT3\Block\Adminhtml\Category\Edit\Button;
+namespace SamueleMartini\GPT\Block\Adminhtml\Category\Edit\Button;
 
 use Magento\Catalog\Block\Adminhtml\Category\AbstractCategory;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
@@ -8,12 +8,12 @@ use Magento\Backend\Block\Template\Context;
 use Magento\Catalog\Model\ResourceModel\Category\Tree;
 use Magento\Framework\Registry;
 use Magento\Catalog\Model\CategoryFactory;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
+use SamueleMartini\GPT\Helper\ModuleConfig;
 use Magento\Backend\Model\UrlInterface;
 
-class GenerateGPT3Description extends AbstractCategory implements ButtonProviderInterface
+class GenerateGPTDescription extends AbstractCategory implements ButtonProviderInterface
 {
-    const PRODUCT_DESCR_CONTROLLER_PATH = 'gpt3/category/description';
+    const PRODUCT_DESCR_CONTROLLER_PATH = 'gpt/category/description';
 
     /**
      * @var ModuleConfig
@@ -64,7 +64,7 @@ class GenerateGPT3Description extends AbstractCategory implements ButtonProvider
         ];
 
         return [
-            'label' => __('Generate description with GPT-3'),
+            'label' => __('Generate description with OpenAI GPT'),
             'class' => 'action-secondary',
             'on_click' => 'window.location.href="' . $this->url->getUrl(self::PRODUCT_DESCR_CONTROLLER_PATH, $params) . '"',
             'sort_order' => 10

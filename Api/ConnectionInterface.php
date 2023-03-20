@@ -1,6 +1,6 @@
 <?php
 
-namespace SamueleMartini\GPT3\Api;
+namespace SamueleMartini\GPT\Api;
 
 use Exception;
 

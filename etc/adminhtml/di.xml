@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <type name="Magento\Catalog\Controller\Adminhtml\Product\Builder">
-        <plugin name="set_gpt3_product_description" type="SamueleMartini\GPT3\Plugin\SetGPT3ProductDescription"/>
+        <plugin name="set_gpt_product_description" type="SamueleMartini\GPT\Plugin\SetGPTProductDescription"/>
     </type>
     <type name="Magento\Catalog\Controller\Adminhtml\Category\Edit">
-        <plugin name="set_gpt3_category_description"
-                type="SamueleMartini\GPT3\Plugin\SetGPT3CategoryDescription"/>
+        <plugin name="set_gpt_category_description" type="SamueleMartini\GPT\Plugin\SetGPTCategoryDescription"/>
     </type>
 </config>

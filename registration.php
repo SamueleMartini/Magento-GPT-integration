@@ -2,4 +2,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'SamueleMartini_GPT3', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'SamueleMartini_GPT', __DIR__);

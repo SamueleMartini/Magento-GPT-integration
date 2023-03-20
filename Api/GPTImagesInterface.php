@@ -1,10 +1,10 @@
 <?php
 
-namespace SamueleMartini\GPT3\Api;
+namespace SamueleMartini\GPT\Api;
 
 use Exception;
 
-interface GPT3ImagesInterface
+interface GPTImagesInterface
 {
     /**
      * @param string $imageDescription
@@ -13,5 +13,5 @@ interface GPT3ImagesInterface
      * @return array
      * @throws Exception
      */
-    public function getGPT3Images(string $imageDescription, int $qty = 1, string $size = '1024x1024'): array;
+    public function getGPTImages(string $imageDescription, int $qty = 1, string $size = '1024x1024'): array;
 }

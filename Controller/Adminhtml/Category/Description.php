@@ -1,6 +1,6 @@
 <?php
 
-namespace SamueleMartini\GPT3\Controller\Adminhtml\Category;
+namespace SamueleMartini\GPT\Controller\Adminhtml\Category;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpGetActionInterface;

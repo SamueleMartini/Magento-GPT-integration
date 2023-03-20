@@ -1,14 +1,14 @@
 <?php
 
-namespace SamueleMartini\GPT3\Helper;
+namespace SamueleMartini\GPT\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
 
 class ModuleConfig extends AbstractHelper
 {
-    const GPT3 = 'gpt_3/';
-    const GENERAL = self::GPT3 . 'general/';
+    const GPT = 'gpt/';
+    const GENERAL = self::GPT . 'general/';
     const MODULE_ENABLE = self::GENERAL . 'enable';
     const API_KEY = self::GENERAL . 'api_key';
     const ORG_ID = self::GENERAL . 'org_id';
@@ -41,7 +41,7 @@ class ModuleConfig extends AbstractHelper
     /**
      * @return string
      */
-    public function getGPT3Model(): string
+    public function getGPTModel(): string
     {
         return (string)$this->scopeConfig->getValue(self::MODEL, ScopeInterface::SCOPE_STORE);
     }

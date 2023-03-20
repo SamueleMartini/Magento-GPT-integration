@@ -1,10 +1,10 @@
 <?php
 
-namespace SamueleMartini\GPT3\Model\Config\GPT3;
+namespace SamueleMartini\GPT\Model\Config\GPT;
 
 use Magento\Framework\Data\OptionSourceInterface;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\GPT3ModelsInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\GPTModelsInterface;
 use Exception;
 
 class Models implements OptionSourceInterface
@@ -14,20 +14,20 @@ class Models implements OptionSourceInterface
      */
     protected ModuleConfig $moduleConfig;
     /**
-     * @var GPT3ModelsInterface
+     * @var GPTModelsInterface
      */
-    protected GPT3ModelsInterface $GPT3Models;
+    protected GPTModelsInterface $GPTModels;
 
     /**
      * @param ModuleConfig $moduleConfig
-     * @param GPT3ModelsInterface $GPT3Models
+     * @param GPTModelsInterface $GPTModels
      */
     public function __construct(
         ModuleConfig $moduleConfig,
-        GPT3ModelsInterface $GPT3Models
+        GPTModelsInterface $GPTModels
     ) {
         $this->moduleConfig = $moduleConfig;
-        $this->GPT3Models = $GPT3Models;
+        $this->GPTModels = $GPTModels;
     }
 
     /**
@@ -42,7 +42,7 @@ class Models implements OptionSourceInterface
 
         $return = [];
 
-        foreach ($this->GPT3Models->getGPT3Models() as $model) {
+        foreach ($this->GPTModels->getGPTModels() as $model) {
             $return[] = [
                 'value' => $model['id'],
                 'label' => $model['root']

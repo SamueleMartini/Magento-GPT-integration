@@ -1,13 +1,13 @@
 <?php
 
-namespace SamueleMartini\GPT3\Console\Command;
+namespace SamueleMartini\GPT\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\GPT3ImagesInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\GPTImagesInterface;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Exception;
 
@@ -18,22 +18,22 @@ class GenerateImages extends Command
      */
     protected ModuleConfig $moduleConfig;
     /**
-     * @var GPT3ImagesInterface
+     * @var GPTImagesInterface
      */
-    protected GPT3ImagesInterface $GPT3Images;
+    protected GPTImagesInterface $GPTImages;
 
     /**
      * @param ModuleConfig $moduleConfig
-     * @param GPT3ImagesInterface $GPT3Images
+     * @param GPTImagesInterface $GPTImages
      * @param null $name
      */
     public function __construct(
         ModuleConfig $moduleConfig,
-        GPT3ImagesInterface $GPT3Images,
+        GPTImagesInterface $GPTImages,
         $name = null
     ) {
         $this->moduleConfig = $moduleConfig;
-        $this->GPT3Images = $GPT3Images;
+        $this->GPTImages = $GPTImages;
         parent::__construct($name);
     }
 
@@ -42,8 +42,8 @@ class GenerateImages extends Command
      */
     protected function configure()
     {
-        $this->setName('gpt-3:generate:images');
-        $this->setDescription('Generate inages with GPT-3 Open AI API, providing description of images.');
+        $this->setName('openai-dall-e:generate:images');
+        $this->setDescription('Generate inages with OpenAI Dall-E API, providing description of images.');
         $this->addOption(
             'images_description',
             'd',
@@ -88,7 +88,7 @@ class GenerateImages extends Command
         $qty = $input->getOption('quantity') ? $input->getOption('quantity') : 1;
         $size = $input->getOption('size') ? $input->getOption('size') : '1024x1024';
 
-        $images = $this->GPT3Images->getGPT3Images($imagesDescription, (int)$qty, $size);
+        $images = $this->GPTImages->getGPTImages($imagesDescription, (int)$qty, $size);
 
         foreach ($images as $key => $image) {
             $output->writeln("\n" . ($key + 1) . ': ' . $image['url']);

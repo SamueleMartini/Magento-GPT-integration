@@ -1,6 +1,6 @@
 <?php
 
-namespace SamueleMartini\GPT3\Controller\Adminhtml\Product;
+namespace SamueleMartini\GPT\Controller\Adminhtml\Product;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\Action\HttpGetActionInterface;

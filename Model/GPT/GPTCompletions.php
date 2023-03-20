@@ -1,30 +1,30 @@
 <?php
 
-namespace SamueleMartini\GPT3\Model\GPT3;
+namespace SamueleMartini\GPT\Model\GPT;
 
-use SamueleMartini\GPT3\Api\GPT3CompletionsInterface;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\ConnectionInterface as GPT3Connection;
+use SamueleMartini\GPT\Api\GPTCompletionsInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\ConnectionInterface as GPTConnection;
 use Exception;
 
-class GPT3Completions implements GPT3CompletionsInterface
+class GPTCompletions implements GPTCompletionsInterface
 {
     /**
      * @var ModuleConfig
      */
     protected ModuleConfig $moduleConfig;
     /**
-     * @var GPT3Connection
+     * @var GPTConnection
      */
-    protected GPT3Connection $connection;
+    protected GPTConnection $connection;
 
     /**
      * @param ModuleConfig $moduleConfig
-     * @param GPT3Connection $connection
+     * @param GPTConnection $connection
      */
     public function __construct(
         ModuleConfig $moduleConfig,
-        GPT3Connection $connection
+        GPTConnection $connection
     ) {
         $this->moduleConfig = $moduleConfig;
         $this->connection = $connection;
@@ -35,12 +35,12 @@ class GPT3Completions implements GPT3CompletionsInterface
      * @return string
      * @throws Exception
      */
-    public function getGPT3Completions(string $prompt): string
+    public function getGPTCompletions(string $prompt): string
     {
         $headers = ['Content-Type' => 'application/json'];
         $method = 'completions';
         $params = [
-            'model' => $this->moduleConfig->getGPT3Model(),
+            'model' => $this->moduleConfig->getGPTModel(),
             'prompt' => $prompt,
             'temperature' => 0,
             'max_tokens' => 2000

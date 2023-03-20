@@ -2,7 +2,7 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <settings>
         <buttons>
-            <button name="gpt3" class="SamueleMartini\GPT3\Block\Adminhtml\Product\Edit\Button\GenerateGPT3Description"/>
+            <button name="gpt" class="SamueleMartini\GPT\Block\Adminhtml\Product\Edit\Button\GenerateGPTDescription"/>
         </buttons>
     </settings>
 </form>

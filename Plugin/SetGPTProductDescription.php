@@ -1,17 +1,17 @@
 <?php
 
-namespace SamueleMartini\GPT3\Plugin;
+namespace SamueleMartini\GPT\Plugin;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Controller\Adminhtml\Product\Builder as Subject;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
+use SamueleMartini\GPT\Helper\ModuleConfig;
 use Magento\Framework\Message\ManagerInterface;
-use SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface;
+use SamueleMartini\GPT\Api\GenerateProductDescriptionInterface;
 use Exception;
 
-class SetGPT3ProductDescription
+class SetGPTProductDescription
 {
     /**
      * @var ModuleConfig

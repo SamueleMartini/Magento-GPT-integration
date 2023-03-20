@@ -1,14 +1,14 @@
-# SamueleMartini_GPT3 module
+# SamueleMartini_GPT module
 
-<font color='red'>**The following module integrates some Open AI GPT-3 features into Magento:** </font>
+<font color='red'>**The following module integrates some OpenAI GPT model language features into Magento:** </font>
 
 ## Install
-`composer require samuele-martini/module-gpt-3`
+`composer require samuele-martini/module-openai-gpt`
 
 ## Admin panel usage
 The main feature is the ability to automatically generate product and category descriptions from the admin panel.
 Simply enter the modification page of a product or category and click on the appropriate button.
-The description is generated via GPT-3 starting from the product or category name, directly translated into the same language as the selected store view.
+The description is generated via GPT model language starting from the product or category name, directly translated into the same language as the selected store view.
 The generated description is only a preview, it needs to be revised and the product or category needs to be saved to consolidate it.
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
@@ -19,7 +19,7 @@ For the module working, you need to properly configure the parameters from the a
 * Enable module: enable/disable the functions provided by the module
 * Open AI Organization ID: your Open AI account ID, it can be found at this link after registering for a free account: https://beta.openai.com/account/org-settings
 * Open AI Api Key: your Open AI auth api key, it can be found at this link after registering for a free account: https://beta.openai.com/account/api-keys
-* GPT-3 model: the natural language model that GPT-3 should use to generate texts. The list will appear only after filling in the previous parameters and saving, as the list may be different for each account. To learn about the differences between the various models and choose the most suitable one, refer to the documentation: https://beta.openai.com/docs/models/gpt-3
+* OpenAI GPT model language: the natural language model that GPT should use to generate texts. The list will appear only after filling in the previous parameters and saving, as the list may be different for each account. To learn about the differences between the various models and choose the most suitable one, refer to the documentation: https://platform.openai.com/docs/models/overview
 
 ## For developers
 Some notes of interest for developers
@@ -54,7 +54,7 @@ Another example: the provided Magento Models can be used to develop the automati
 ```
 public function __construct(
         ...
-        \SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface $generateProductDescription,
+        \SamueleMartini\GPT\Api\GenerateProductDescriptionInterface $generateProductDescription,
         ...
     ) {
         ...
@@ -86,17 +86,17 @@ They are only useful for testing the functions, the generated texts and images a
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 
-# SamueleMartini_GPT3 module
+# SamueleMartini_GPT module
 
-<font color='red'>**Il seguente modulo integra in Magento alcune funzionalità di GPT-3 di Open AI:** </font>
+<font color='red'>**Il seguente modulo integra in Magento alcune funzionalità del modello linguistico GPT di OpenAI:** </font>
 
 ## Install
-`composer require samuele-martini/module-gpt-3`
+`composer require samuele-martini/module-openai-gpt`
 
 ## Utilizzo da pannello di amministrazione
 La funzionalità principale è la possibilità di generare automaticamente la descrizione di prodotti e categorie dal pannello di amministrazione.
 È sufficiente entrare nella pagina di modifica di un prodotto o di una categoria e cliccare nell'apposito pulsante.
-La descrizione viene generata tramite GPT-3 a partire dal nome del prodotto o della categoria, direttamente tradotta nella stessa lingua della store view selezionata.
+La descrizione viene generata tramite il modello linguistico GPT a partire dal nome del prodotto o della categoria, direttamente tradotta nella stessa lingua della store view selezionata.
 La descrizione generata è solo un'aneprima, deve essere revisionata ed il prodotto o la categoria devono essere salvati per consolidarla.
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
@@ -107,7 +107,7 @@ Affinché il modulo funzioni, occorre configurare opportunamente i parametri dal
 * Enable module: serve per abilitare/disabilitare le funzionalità messe a disposizione dal modulo
 * Open AI Organization ID: l'ID del tuo account Open AI, si trova a questo link dopo aver registrato gratuitamente un account: https://beta.openai.com/account/org-settings
 * Open AI Api Key: l'api key per autenticare le richieste fatte dal modulo ad Open AI, si trova a questo link dopo aver registrato gratuitamente un account: https://beta.openai.com/account/api-keys
-* GPT-3 model: il modello di linguaggio naturale che GPT-3 deve usare per generare i testi. La lista apparirà solo dopo aver compilato i precedenti parametri e salvato, in quanto per ogni account la lista potrebbe essere diversa. Per conoscere le differenze tra i vari modelli e scegliere quello più adatto, fare riferimento alla documentazione: https://beta.openai.com/docs/models/gpt-3
+* OpenAI GPT model language: il modello di linguaggio naturale che GPT deve usare per generare i testi. La lista apparirà solo dopo aver compilato i precedenti parametri e salvato, in quanto per ogni account la lista potrebbe essere diversa. Per conoscere le differenze tra i vari modelli e scegliere quello più adatto, fare riferimento alla documentazione: https://platform.openai.com/docs/models/overview
 
 ## Per gli sviluppatori
 Alcune note di interesse per gli sviluppatori
@@ -142,7 +142,7 @@ Un altro esempio: i Magento Model messi a disposizione possono essere usati per 
 ```
 public function __construct(
         ...
-        \SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface $generateProductDescription,
+        \SamueleMartini\GPT\Api\GenerateProductDescriptionInterface $generateProductDescription,
         ...
     ) {
         ...

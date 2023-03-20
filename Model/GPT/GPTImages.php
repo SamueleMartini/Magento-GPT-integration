@@ -1,13 +1,13 @@
 <?php
 
-namespace SamueleMartini\GPT3\Model\GPT3;
+namespace SamueleMartini\GPT\Model\GPT;
 
-use SamueleMartini\GPT3\Api\GPT3ImagesInterface;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\ConnectionInterface as GPT3Connection;
+use SamueleMartini\GPT\Api\GPTImagesInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\ConnectionInterface as GPTConnection;
 use Exception;
 
-class GPT3Images implements GPT3ImagesInterface
+class GPTImages implements GPTImagesInterface
 {
     /**
      * @var ModuleConfig
@@ -16,11 +16,11 @@ class GPT3Images implements GPT3ImagesInterface
 
     /**
      * @param ModuleConfig $moduleConfig
-     * @param GPT3Connection $connection
+     * @param GPTConnection $connection
      */
     public function __construct(
         ModuleConfig $moduleConfig,
-        GPT3Connection $connection
+        GPTConnection $connection
     ) {
         $this->moduleConfig = $moduleConfig;
         $this->connection = $connection;
@@ -33,7 +33,7 @@ class GPT3Images implements GPT3ImagesInterface
      * @return array
      * @throws Exception
      */
-    public function getGPT3Images(string $imageDescription, int $qty = 1, string $size = '1024x1024'): array
+    public function getGPTImages(string $imageDescription, int $qty = 1, string $size = '1024x1024'): array
     {
         $headers = ['Content-Type' => 'application/json'];
         $method = 'images/generations';

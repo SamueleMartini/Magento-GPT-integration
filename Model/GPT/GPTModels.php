@@ -1,13 +1,13 @@
 <?php
 
-namespace SamueleMartini\GPT3\Model\GPT3;
+namespace SamueleMartini\GPT\Model\GPT;
 
-use SamueleMartini\GPT3\Api\GPT3ModelsInterface;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\ConnectionInterface as GPT3Connection;
+use SamueleMartini\GPT\Api\GPTModelsInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\ConnectionInterface as GPTConnection;
 use Exception;
 
-class GPT3Models implements GPT3ModelsInterface
+class GPTModels implements GPTModelsInterface
 {
     /**
      * @var ModuleConfig
@@ -16,7 +16,7 @@ class GPT3Models implements GPT3ModelsInterface
     /**
      * @var Connection
      */
-    protected GPT3Connection $connection;
+    protected GPTConnection $connection;
 
     /**
      * @param ModuleConfig $moduleConfig
@@ -24,7 +24,7 @@ class GPT3Models implements GPT3ModelsInterface
      */
     public function __construct(
         ModuleConfig $moduleConfig,
-        GPT3Connection $connection
+        GPTConnection $connection
     ) {
         $this->moduleConfig = $moduleConfig;
         $this->connection = $connection;
@@ -34,7 +34,7 @@ class GPT3Models implements GPT3ModelsInterface
      * @return array
      * @throws Exception
      */
-    public function getGPT3Models(): array
+    public function getGPTModels(): array
     {
         $headers = ['OpenAI-Organization' => $this->moduleConfig->getOrgId()];
         $method = 'models';

@@ -4,11 +4,11 @@
         <tab id="samuele_martini" translate="label" sortOrder="10">
             <label>Samuele Martini</label>
         </tab>
-        <section id="gpt_3" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>GPT 3 settings</label>
+        <section id="gpt" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>OpenAI GPT settings</label>
             <class>separator-top</class>
             <tab>samuele_martini</tab>
-            <resource>SamueleMartini_GPT3::samuele_martini_gpt_3</resource>
+            <resource>SamueleMartini_GPT::samuele_martini_openai_gpt</resource>
             <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -24,9 +24,9 @@
                     <comment>Get you api key here: https://beta.openai.com/account/api-keys</comment>
                 </field>
                 <field id="model" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>GPT-3 model</label>
-                    <source_model>SamueleMartini\GPT3\Model\Config\GPT3\Models</source_model>
-                    <comment>Insert api key and organization ID and save to see options. Refer to the documentation to understand which model to select: https://beta.openai.com/docs/models/gpt-3</comment>
+                    <label>OpenAI GPT model language</label>
+                    <source_model>SamueleMartini\GPT\Model\Config\GPT\Models</source_model>
+                    <comment>Insert api key and organization ID and save to see options. Refer to the documentation to understand which model to select: https://platform.openai.com/docs/models/overview</comment>
                 </field>
             </group>
         </section>

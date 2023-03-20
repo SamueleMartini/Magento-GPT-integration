@@ -1,20 +1,20 @@
 <?php
 
-namespace SamueleMartini\GPT3\Service;
+namespace SamueleMartini\GPT\Service;
 
-use SamueleMartini\GPT3\Api\GenerateCategoryDescriptionInterface;
-use SamueleMartini\GPT3\Api\GPT3CompletionsInterface;
+use SamueleMartini\GPT\Api\GenerateCategoryDescriptionInterface;
+use SamueleMartini\GPT\Api\GPTCompletionsInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
-use SamueleMartini\GPT3\Api\GetLanguageByStoreIdInterface;
+use SamueleMartini\GPT\Api\GetLanguageByStoreIdInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Exception;
 
 class GenerateCategoryDescription implements GenerateCategoryDescriptionInterface
 {
     /**
-     * @var GPT3CompletionsInterface
+     * @var GPTCompletionsInterface
      */
-    protected GPT3CompletionsInterface $GPT3Completions;
+    protected GPTCompletionsInterface $GPTCompletions;
     /**
      * @var CategoryRepositoryInterface
      */
@@ -25,16 +25,16 @@ class GenerateCategoryDescription implements GenerateCategoryDescriptionInterfac
     protected GetLanguageByStoreIdInterface $getLanguageByStoreId;
 
     /**
-     * @param GPT3CompletionsInterface $GPT3Completions
+     * @param GPTCompletionsInterface $GPTCompletions
      * @param CategoryRepositoryInterface $categoryRepository
      * @param GetLanguageByStoreIdInterface $getLanguageByStoreId
      */
     public function __construct(
-        GPT3CompletionsInterface $GPT3Completions,
+        GPTCompletionsInterface $GPTCompletions,
         CategoryRepositoryInterface $categoryRepository,
         GetLanguageByStoreIdInterface $getLanguageByStoreId
     ) {
-        $this->GPT3Completions = $GPT3Completions;
+        $this->GPTCompletions = $GPTCompletions;
         $this->categoryRepository = $categoryRepository;
         $this->getLanguageByStoreId = $getLanguageByStoreId;
     }
@@ -48,7 +48,7 @@ class GenerateCategoryDescription implements GenerateCategoryDescriptionInterfac
     public function getCategoryDescription(string $categoryName, string $language): string
     {
         $prompt = 'Write a description for ' . $categoryName . ' in ' . $language . ' language';
-        return $this->GPT3Completions->getGPT3Completions($prompt);
+        return $this->GPTCompletions->getGPTCompletions($prompt);
     }
 
     /**

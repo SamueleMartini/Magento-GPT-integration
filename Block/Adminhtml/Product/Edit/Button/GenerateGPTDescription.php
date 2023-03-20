@@ -1,16 +1,16 @@
 <?php
 
-namespace SamueleMartini\GPT3\Block\Adminhtml\Product\Edit\Button;
+namespace SamueleMartini\GPT\Block\Adminhtml\Product\Edit\Button;
 
 use Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic;
 use Magento\Framework\View\Element\UiComponent\Context;
 use Magento\Framework\Registry;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
+use SamueleMartini\GPT\Helper\ModuleConfig;
 use Magento\Backend\Model\UrlInterface;
 
-class GenerateGPT3Description extends Generic
+class GenerateGPTDescription extends Generic
 {
-    const PRODUCT_DESCR_CONTROLLER_PATH = 'gpt3/product/description';
+    const PRODUCT_DESCR_CONTROLLER_PATH = 'gpt/product/description';
 
     /**
      * @var ModuleConfig
@@ -55,7 +55,7 @@ class GenerateGPT3Description extends Generic
         ];
 
         return [
-            'label' => __('Generate description with GPT-3'),
+            'label' => __('Generate description with OpenAI GPT'),
             'class' => 'action-secondary',
             'on_click' => 'window.location.href="' . $this->url->getUrl(self::PRODUCT_DESCR_CONTROLLER_PATH, $params) . '"',
             'sort_order' => 10

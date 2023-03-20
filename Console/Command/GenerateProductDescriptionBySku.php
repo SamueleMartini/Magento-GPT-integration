@@ -1,13 +1,13 @@
 <?php
 
-namespace SamueleMartini\GPT3\Console\Command;
+namespace SamueleMartini\GPT\Console\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use SamueleMartini\GPT3\Helper\ModuleConfig;
-use SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface;
+use SamueleMartini\GPT\Helper\ModuleConfig;
+use SamueleMartini\GPT\Api\GenerateProductDescriptionInterface;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Exception;
 
@@ -42,8 +42,8 @@ class GenerateProductDescriptionBySku extends Command
      */
     protected function configure()
     {
-        $this->setName('gpt-3:generate:product-description:by-sku');
-        $this->setDescription('Generate product description with GPT-3 Open AI API, providing product sku and store ID.');
+        $this->setName('openai-gpt:generate:product-description:by-sku');
+        $this->setDescription('Generate product description with OpenAI GPT model language API, providing product sku and store ID.');
         $this->addOption(
             'sku',
             's',

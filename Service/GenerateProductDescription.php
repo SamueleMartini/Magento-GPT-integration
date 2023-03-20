@@ -1,21 +1,21 @@
 <?php
 
-namespace SamueleMartini\GPT3\Service;
+namespace SamueleMartini\GPT\Service;
 
-use SamueleMartini\GPT3\Api\GenerateProductDescriptionInterface;
-use SamueleMartini\GPT3\Api\GPT3CompletionsInterface;
+use SamueleMartini\GPT\Api\GenerateProductDescriptionInterface;
+use SamueleMartini\GPT\Api\GPTCompletionsInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
-use SamueleMartini\GPT3\Api\GetLanguageByStoreIdInterface;
+use SamueleMartini\GPT\Api\GetLanguageByStoreIdInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Exception;
 
 class GenerateProductDescription implements GenerateProductDescriptionInterface
 {
     /**
-     * @var GPT3CompletionsInterface
+     * @var GPTCompletionsInterface
      */
-    protected GPT3CompletionsInterface $GPT3Completions;
+    protected GPTCompletionsInterface $GPTCompletions;
     /**
      * @var ProductRepositoryInterface
      */
@@ -26,16 +26,16 @@ class GenerateProductDescription implements GenerateProductDescriptionInterface
     protected GetLanguageByStoreIdInterface $getLanguageByStoreId;
 
     /**
-     * @param GPT3CompletionsInterface $GPT3Completions
+     * @param GPTCompletionsInterface $GPTCompletions
      * @param ProductRepositoryInterface $productRepository
      * @param GetLanguageByStoreIdInterface $getLanguageByStoreId
      */
     public function __construct(
-        GPT3CompletionsInterface $GPT3Completions,
+        GPTCompletionsInterface $GPTCompletions,
         ProductRepositoryInterface $productRepository,
         GetLanguageByStoreIdInterface $getLanguageByStoreId
     ) {
-        $this->GPT3Completions = $GPT3Completions;
+        $this->GPTCompletions = $GPTCompletions;
         $this->productRepository = $productRepository;
         $this->getLanguageByStoreId = $getLanguageByStoreId;
     }
@@ -49,7 +49,7 @@ class GenerateProductDescription implements GenerateProductDescriptionInterface
     public function getProductDescription(string $productName, string $language): string
     {
         $prompt = 'Write a description for product ' . $productName . ' in ' . $language . ' language';
-        return $this->GPT3Completions->getGPT3Completions($prompt);
+        return $this->GPTCompletions->getGPTCompletions($prompt);
     }
 
     /**

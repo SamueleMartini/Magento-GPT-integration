@@ -1,8 +1,8 @@
 <?php
 
-namespace SamueleMartini\GPT3\Service;
+namespace SamueleMartini\GPT\Service;
 
-use SamueleMartini\GPT3\Api\GetLanguageByStoreIdInterface;
+use SamueleMartini\GPT\Api\GetLanguageByStoreIdInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Locale\ListsInterface;
 use Magento\Store\Model\ScopeInterface;
