@@ -1,11 +1,12 @@
 {
   "name": "samuele-martini/module-openai-gpt",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "OpenAI GPT model language integration",
   "type": "magento2-module",
   "require": {
     "magento/framework": "*",
-    "magento/module-catalog": "104.0.*"
+    "magento/module-catalog": "104.0.*",
+    "openai-php/client": "^0.6.2"
   },
   "license": [
     "GPL-3.0-or-later"

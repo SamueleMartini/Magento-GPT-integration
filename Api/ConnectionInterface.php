@@ -2,19 +2,12 @@
 
 namespace SamueleMartini\GPT\Api;
 
-use Exception;
+use OpenAI\Client as OpenAIClient;
 
 interface ConnectionInterface
 {
-    const ENDPOINT = 'https://api.openai.com/v1/';
-
     /**
-     * @param string $method
-     * @param array $headers
-     * @param string $requestType
-     * @param array $params
-     * @return array
-     * @throws Exception
+     * @return OpenAIClient
      */
-    public function webserviceCall(string $method, array $headers = [], string $requestType = 'GET', array $params = []): array;
+    public function initClient(): OpenAIClient;
 }

@@ -5,6 +5,7 @@ namespace SamueleMartini\GPT\Model\GPT;
 use SamueleMartini\GPT\Api\GPTCompletionsInterface;
 use SamueleMartini\GPT\Helper\ModuleConfig;
 use SamueleMartini\GPT\Api\ConnectionInterface as GPTConnection;
+use OpenAI\Client as OpenAIClient;
 use Exception;
 
 class GPTCompletions implements GPTCompletionsInterface
@@ -17,6 +18,10 @@ class GPTCompletions implements GPTCompletionsInterface
      * @var GPTConnection
      */
     protected GPTConnection $connection;
+    /**
+     * @var OpenAIClient|null
+     */
+    protected ?OpenAIClient $openAIClient = null;
 
     /**
      * @param ModuleConfig $moduleConfig
@@ -37,17 +42,26 @@ class GPTCompletions implements GPTCompletionsInterface
      */
     public function getGPTCompletions(string $prompt): string
     {
-        $headers = ['Content-Type' => 'application/json'];
-        $method = 'completions';
-        $params = [
-            'model' => $this->moduleConfig->getGPTModel(),
-            'prompt' => $prompt,
-            'temperature' => 0,
-            'max_tokens' => 2000
-        ];
+        if (empty($this->openAIClient)) {
+            $this->openAIClient = $this->connection->initClient();
+        }
 
-        $response = $this->connection->webserviceCall($method, $headers, 'POST', $params);
+        try {
+            $result = $this->openAIClient->completions()->create([
+                'model' => $this->moduleConfig->getGPTModel(),
+                'prompt' => $prompt
+            ]);
 
-        return trim($response['choices'][0]['text']);
+            return trim($result['choices'][0]['text']);
+        } catch (Exception $e) {
+            $result = $this->openAIClient->chat()->create([
+                'model' => $this->moduleConfig->getGPTModel(),
+                'messages' => [
+                    ['role' => 'user', 'content' => $prompt],
+                ],
+            ])->toArray();
+
+            return trim($result['choices'][0]['message']['content']);
+        }
     }
 }

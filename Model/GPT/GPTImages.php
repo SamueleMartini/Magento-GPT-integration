@@ -5,6 +5,7 @@ namespace SamueleMartini\GPT\Model\GPT;
 use SamueleMartini\GPT\Api\GPTImagesInterface;
 use SamueleMartini\GPT\Helper\ModuleConfig;
 use SamueleMartini\GPT\Api\ConnectionInterface as GPTConnection;
+use OpenAI\Client as OpenAIClient;
 use Exception;
 
 class GPTImages implements GPTImagesInterface
@@ -13,6 +14,14 @@ class GPTImages implements GPTImagesInterface
      * @var ModuleConfig
      */
     protected ModuleConfig $moduleConfig;
+    /**
+     * @var GPTConnection
+     */
+    protected GPTConnection $connection;
+    /**
+     * @var OpenAIClient|null
+     */
+    protected ?OpenAIClient $openAIClient = null;
 
     /**
      * @param ModuleConfig $moduleConfig
@@ -35,15 +44,16 @@ class GPTImages implements GPTImagesInterface
      */
     public function getGPTImages(string $imageDescription, int $qty = 1, string $size = '1024x1024'): array
     {
-        $headers = ['Content-Type' => 'application/json'];
-        $method = 'images/generations';
-        $params = [
+        if (empty($this->openAIClient)) {
+            $this->openAIClient = $this->connection->initClient();
+        }
+
+        $response = $this->openAIClient->images()->create([
             'prompt' => $imageDescription,
             'n' => $qty,
-            'size' => $size
-        ];
-
-        $response = $this->connection->webserviceCall($method, $headers, 'POST', $params);
+            'size' => $size,
+            'response_format' => 'url'
+        ])->toArray();
 
         return $response['data'];
     }
