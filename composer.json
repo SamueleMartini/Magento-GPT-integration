@@ -1,6 +1,5 @@
 {
   "name": "samuele-martini/module-openai-gpt",
-  "version": "1.2.0",
   "description": "OpenAI GPT model language integration",
   "type": "magento2-module",
   "require": {
