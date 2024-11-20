@@ -1,5 +1,9 @@
 # SamueleMartini_GPT module
 
+# 🚨 This repository is abandoned 🚨
+This project is no longer maintained. We encourage you to use [MageOS catalog dataaai](https://github.com/mage-os-lab/module-catalog-data-ai/).
+
+
 <font color='red'>**The following module integrates some OpenAI GPT model language features into Magento:** </font>
 
 ## Install
@@ -87,6 +91,9 @@ They are only useful for testing the functions, the generated texts and images a
 
 
 # SamueleMartini_GPT module
+
+# 🚨 Questo repository è abbandonato 🚨
+Questo progetto non viene più mantenuto. Vi invitiamo a utilizzare [MageOS catalog dataaai](https://github.com/mage-os-lab/module-catalog-data-ai/).
 
 <font color='red'>**Il seguente modulo integra in Magento alcune funzionalità del modello linguistico GPT di OpenAI:** </font>
 
